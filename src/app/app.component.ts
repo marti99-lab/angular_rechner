@@ -1,20 +1,30 @@
 import { Component } from '@angular/core';
 
-import { DUMMY_USERS } from './dummy-users';
-
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css',})
+    styleUrls: ['./app.component.css']
+})
 export class AppComponent {
-  users = DUMMY_USERS;
-  selectedUserId?: string;
+  num1: number = 0;
+  num2: number = 0;
+  result: number | null = null;
+  operator: string = '+';
 
-  get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId);
-  }
-
-  onSelectUser(id: string) {
-    this.selectedUserId = id;
+  calculate() {
+    switch (this.operator) {
+      case '+':
+        this.result = this.num1 + this.num2;
+        break;
+      case '-':
+        this.result = this.num1 - this.num2;
+        break;
+      case '*':
+        this.result = this.num1 * this.num2;
+        break;
+      case '/':
+        this.result = this.num2 !== 0 ? this.num1 / this.num2 : null;
+        break;
+    }
   }
 }

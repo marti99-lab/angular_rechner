@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 * {
   box-sizing: border-box;
 }
@@ -9,8 +8,8 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #181023, #0b0519);
-  color: #c3b3d8;
+  background: linear-gradient(to bottom, #b3dde2 , #87CEEB);
+  color: #333;
   margin: 0;
   padding: 0;
   height: 100%;
