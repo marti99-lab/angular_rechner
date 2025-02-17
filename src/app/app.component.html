@@ -1,21 +1,15 @@
 <app-header />
 
-<main>
-  <ul id="users">
-    @for (user of users; track user.id) {
-    <li>
-      <app-user
-        [user]="user"
-        [selected]="user.id === selectedUserId"
-        (select)="onSelectUser($event)"
-      />
-    </li>
-    }
-  </ul>
+<main class="calculator">
+  <input type="number" [(ngModel)]="num1" placeholder="Zahl 1" />
+  <select [(ngModel)]="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" [(ngModel)]="num2" placeholder="Zahl 2" />
+  <button (click)="calculate()">=</button>
 
-  @if (selectedUser) {
-  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
-  } @else {
-  <p id="fallback">Select a user to see their tasks!</p>
-  }
+  <h2 *ngIf="result !== null">Ergebnis: {{ result }}</h2>
 </main>
